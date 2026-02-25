@@ -1,0 +1,32 @@
+html{
+    background-color: seagreen;
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+}
+h1{
+    font-size: 5rem;
+    display: inline-block;
+}
+img{
+    display: inline-block;
+}
+span{
+    color: firebrick;
+    font-size: 4rem;
+}
+.first {
+    h1{
+        display: block;
+    font-size: 2rem;
+    color: blue;
+  }
+  p{
+    font-size: 1.5rem;
+    color: whitesmoke;
+  }
+}
+footer{
+    color: midnightblue;
+    float: right;
+}

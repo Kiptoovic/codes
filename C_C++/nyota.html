@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nyota Loan Program</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+    .container { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+    input, button { width: 100%; padding: 10px; margin: 8px 0; }
+    button { background: #007BFF; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Nyota Loan Program</h2>
+    <form id="loanForm">
+      <label>Full Name:</label>
+      <input type="text" id="name" required>
+      <label>Date of Birth:</label>
+      <input type="text" id="dob" placeholder="DD/MM/YYYY" required>
+      <label>Create Password:</label>
+      <input type="password" id="password" required>
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" required>
+      <label>Loan Amount (Ksh):</label>
+      <input type="number" id="loanAmount" required>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="result"></p>
+  </div>
+  <script>
+    document.getElementById("loanForm").onsubmit = function(event) {
+      event.preventDefault();
+      let pw = document.getElementById("password").value;
+      let cpw = document.getElementById("confirmPassword").value;
+      let loan = parseInt(document.getElementById("loanAmount").value);
+      let result = document.getElementById("result");
+      if (pw !== cpw) {
+        result.innerText = "Passwords do not match. Please try again.";
+        return;
+      }
+      if (loan >= 100) {
+        result.innerText = "You requested " + loan + " Ksh. Please pay 20 Ksh to the official Nyota account before processing.";
+      } else {
+        result.innerText = "You requested " + loan + " Ksh. No upfront payment required.";
+      }
+    };
+  </script>
+</body>
+</html>

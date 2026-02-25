@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: system-ui, Arial, sans-serif;
+      background: #ffe6ee;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding-top: 15vh;
+    }
+
+    h1 {
+      font-size: clamp(22px, 5vw, 36px);
+      margin-bottom: 40px;
+      padding: 0 16px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: clamp(16px, 4vw, 20px);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+      position: absolute;
+      min-width: 120px;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #4caf50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Will you be my Valentines hunny bunny?
+                  💘</h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+
+    function centerButtons() {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      yesBtn.style.left = centerX - yesBtn.offsetWidth - 10 + "px";
+      yesBtn.style.top  = centerY + "px";
+
+      noBtn.style.left = centerX + 10 + "px";
+      noBtn.style.top  = centerY + "px";
+    }
+
+    function moveNo() {
+      const padding = 10;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top  = y + "px";
+    }
+
+    /* Immediate escape (mobile + desktop) - No button moves */
+    noBtn.addEventListener("mouseenter", moveNo);
+    noBtn.addEventListener("mousedown", moveNo);
+    noBtn.addEventListener("touchstart", moveNo, { passive: true });
+
+    /* YES click */
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          font-size:clamp(22px,6vw,32px);
+          background:#ffe6ee;
+          text-align:center;
+          padding:20px;">
+          Thanks sweetheart,,I love you soo much 💕
+        </div>
+      `;
+    });
+
+    /* Re-center on load & resize */
+    window.addEventListener("load", centerButtons);
+    window.addEventListener("resize", centerButtons);
+    window.addEventListener("orientationchange", centerButtons);
+  </script>
+</body>
+</html>

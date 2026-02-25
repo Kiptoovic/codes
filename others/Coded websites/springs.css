@@ -1,0 +1,20 @@
+html{
+    background-color: black;
+}
+
+tittle{
+    color: red;
+}
+
+h1{
+    color: green;
+}
+
+h2{
+    color: blue;
+}
+
+button{
+    background-color: yellow;
+    float: right;
+}
