@@ -1,46 +1,120 @@
-html{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     background-color: seagreen;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 95vh;
+    min-height: 100vh;
 }
 
-tittle{
-    font-family :Arial, Helvetica, sans-serif;
+title {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
-    font-weight: bold;
 }
-h1{
-    font-size: 5rem;
-    display: inline-block;
-}
-img{
+
+h1 {
+    font-size: 3rem;
     display: block;
+    margin: 20px 0;
 }
-span{
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+span {
     color: firebrick;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
-#first{
-
+#first {
     border: 2px solid red;
-    padding: 0px;
-    margin: 0px;
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
 }
+
+#first img {
+    width: 100%;
+    height: auto;
+}
+
+#second {
+    padding: 20px;
+    text-align: center;
+}
+
+#third {
+    padding: 10px;
+}
+
+#third img {
+    width: 100%;
+    height: auto;
+}
+
 .first {
-    h1{
-        display: block;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.first h1 {
+    display: block;
     font-size: 2rem;
     color: blue;
-   
-  }
-  p{
+    margin-top: 20px;
+}
+
+.first h1:first-child {
+    margin-top: 0;
+}
+
+.first p {
     font-size: 1.5rem;
     color: whitesmoke;
-  }
+    margin: 15px 0;
+    line-height: 1.6;
 }
-footer{
+
+.first img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+footer {
     color: midnightblue;
-    float: right;
+    text-align: right;
+    padding: 20px;
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    span {
+        font-size: 1.8rem;
+    }
+    
+    .first h1 {
+        font-size: 1.5rem;
+    }
+    
+    .first p {
+        font-size: 1rem;
+    }
 }

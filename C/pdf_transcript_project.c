@@ -170,9 +170,9 @@ int main() {
         fgets(student.courses[i].title, sizeof(student.courses[i].title), stdin);
         student.courses[i].title[strcspn(student.courses[i].title, "\n")] = 0;
         
-        printf("Points: ");
-
+        printf("Credit Units: ");
         scanf("%d", &student.courses[i].units);
+        getchar();  // Clear the newline from input buffer
         
         printf("Mark (0-100): ");
         scanf("%d", &student.courses[i].mark);
@@ -191,20 +191,20 @@ int main() {
     
     // Determine classification and remark based on GPA
     if (student.gpa >= 3.6) {
-        strcpy(student.classification, "First Class Honours");
-        strcpy(student.remark, "EXCELLENT PERFORMANCE");
+        strncpy(student.classification, "First Class Honours", sizeof(student.classification)-1);
+        strncpy(student.remark, "EXCELLENT PERFORMANCE", sizeof(student.remark)-1);
     } else if (student.gpa >= 3.0) {
-        strcpy(student.classification, "Upper Second Class Honours");
-        strcpy(student.remark, "VERY GOOD PERFORMANCE");
+        strncpy(student.classification, "Upper Second Class Honours", sizeof(student.classification)-1);
+        strncpy(student.remark, "VERY GOOD PERFORMANCE", sizeof(student.remark)-1);
     } else if (student.gpa >= 2.4) {
-        strcpy(student.classification, "Lower Second Class Honours");
-        strcpy(student.remark, "GOOD PERFORMANCE");
+        strncpy(student.classification, "Lower Second Class Honours", sizeof(student.classification)-1);
+        strncpy(student.remark, "GOOD PERFORMANCE", sizeof(student.remark)-1);
     } else if (student.gpa >= 1.6) {
-        strcpy(student.classification, "Third Class Honours");
-        strcpy(student.remark, "SATISFACTORY PERFORMANCE");
+        strncpy(student.classification, "Third Class Honours", sizeof(student.classification)-1);
+        strncpy(student.remark, "SATISFACTORY PERFORMANCE", sizeof(student.remark)-1);
     } else {
-        strcpy(student.classification, "Pass");
-        strcpy(student.remark, "MINIMUM PERFORMANCE");
+        strncpy(student.classification, "Pass", sizeof(student.classification)-1);
+        strncpy(student.remark, "MINIMUM PERFORMANCE", sizeof(student.remark)-1);
     }
     
     // Ask user for PDF filename
@@ -222,7 +222,7 @@ int main() {
     }
     
     char fullpath[300];
-    sprintf(fullpath, "%s.pdf", filename);
+    snprintf(fullpath, sizeof(fullpath), "%s.pdf", filename);
     
     // Create PDF transcript
     createPDFTranscript(&student, fullpath);
